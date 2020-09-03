@@ -1,9 +1,11 @@
 package me.landervanlaer.sorting;
 
+import java.util.Arrays;
+
 public class Sort {
 
     public static void main(String[] args) {
-        Sort.sortSpeedTest(Sort.createRandomArray(500), Algorithms.INSERTION, Algorithms.QUICKSORT);
+        Sort.sortSpeedTest(Sort.createRandomArray(20), Algorithms.INSERTION, Algorithms.QUICKSORT);
     }
 
     public static void sort(int[] arr, Algorithms algorithm) {
