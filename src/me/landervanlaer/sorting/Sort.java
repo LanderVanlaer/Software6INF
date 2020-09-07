@@ -1,6 +1,5 @@
 package me.landervanlaer.sorting;
 
-import java.util.Arrays;
 
 public class Sort {
 
@@ -12,6 +11,10 @@ public class Sort {
         switch(algorithm) {
             case INSERTION -> Insertion.sort(arr);
             case QUICKSORT -> Quicksort.sort(arr);
+            case COMBINED -> {
+                if(arr.length <= 10) sort(arr, Algorithms.INSERTION);
+                else sort(arr, Algorithms.QUICKSORT);
+            }
         }
     }
 
