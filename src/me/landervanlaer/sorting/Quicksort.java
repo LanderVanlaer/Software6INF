@@ -8,16 +8,13 @@ public class Quicksort {
     private static int partition(int[] arr, int p, int r) {
         int x = arr[r];
         int i = p - 1;
-        for(int j = p; j < r; j++) {
+        for(int j = p; j <= r; j++) {
             if(arr[j] <= x) {
                 final int temp = arr[++i];
                 arr[i] = arr[j];
                 arr[j] = temp;
             }
         }
-        final int temp = arr[++i];
-        arr[i] = arr[r];
-        arr[r] = temp;
         return i;
     }
 
