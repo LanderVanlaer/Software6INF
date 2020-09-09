@@ -4,7 +4,13 @@ package me.landervanlaer.sorting;
 public class Sort {
 
     public static void main(String[] args) {
-        Sort.sortSpeedTest(Sort.createRandomArray(20), Algorithms.INSERTION, Algorithms.QUICKSORT);
+        int[] arr = Sort.createRandomArray(10);
+        for(int i : arr)
+            System.out.print(i +", ");
+        System.out.println();
+        Sort.sort(arr, Algorithms.QUICKSORT);
+        for(int i : arr)
+            System.out.print(i +", ");
     }
 
     public static void sort(int[] arr, Algorithms algorithm) {

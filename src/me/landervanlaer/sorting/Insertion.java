@@ -2,14 +2,14 @@ package me.landervanlaer.sorting;
 
 public class Insertion {
     protected static void sort(int[] arr) {
-        for(int i = 0; i < arr.length; i++) {
-            final int teSorterenWaarde = arr[i];
-            int legePositie = i;
-            while(legePositie > 0 && teSorterenWaarde < arr[legePositie - 1]) {
-                arr[legePositie] = arr[legePositie - 1];
-                legePositie--;
+        for(int i = 1; i < arr.length; i++) {
+            int temp = arr[i];
+            int j = i;
+            while(j > 0 && temp < arr[j - 1]) {
+                arr[j] = arr[j - 1];
+                j--;
             }
-            arr[legePositie] = teSorterenWaarde;
+            arr[j] = temp;
         }
     }
 }
