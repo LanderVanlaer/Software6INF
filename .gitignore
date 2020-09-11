@@ -7,5 +7,9 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 
-src/tests
+# Class Files
 out
+
+# tests
+src/test
+src/tests
