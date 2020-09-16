@@ -24,5 +24,5 @@
         </value>
     </ChoiceBox>
     <Button onAction="#handleButtonAction" text="genereer" layoutX="65" prefWidth="100"/>
-    <Label fx:id="label" layoutX="130" layoutY="5" style="-fx-font-family: Arial"/>
+    <Label fx:id="label" layoutX="170" layoutY="5" style="-fx-font-family: Arial"/>
 </AnchorPane>
