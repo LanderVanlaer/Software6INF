@@ -1,7 +1,6 @@
 package me.landervanlaer.javaFx.oef2;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -16,12 +15,12 @@ public class Controller {
         warning.setText("");
         label.setText("");
 
-        if(firstName.getText().isEmpty())
+        if(firstName.getText().trim().isEmpty())
             warning.setText("Gelieve een voornaam in te geven");
-        else if(lastName.getText().isEmpty())
+        else if(lastName.getText().trim().isEmpty())
             warning.setText("Gelieve een achternaam in te geven");
         else
-            label.setText(firstName.getText().toLowerCase().charAt(0) +
+            label.setText(firstName.getText().trim().toLowerCase().charAt(0) +
                     lastName.getText().toLowerCase().replaceAll(" ", "")
                             .substring(0, Math.min(lastName.getText().length(), 6)));
     }
