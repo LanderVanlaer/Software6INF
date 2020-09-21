@@ -12,17 +12,26 @@ public class Controller {
     public Button button;
 
     private Timeline timeline;
+    private int counter = 120;
 
     public void initialize() {
         timeline = new Timeline(new KeyFrame(Duration.seconds(1.0), this::puls));
         timeline.setCycleCount(10);
+        label.setText(String.valueOf(counter));
     }
 
     public void startCounter(ActionEvent e) {
         timeline.playFromStart();
+        label.getStyleClass().remove("alarm");
     }
 
     private void puls(ActionEvent actionEvent) {
+        label.setText(String.valueOf(--counter));
+        if(counter <= 0) {
+            timeline.stop();
+
+        } else if(counter <= 10)
+            label.getStyleClass().add("alarm");
 
     }
 }

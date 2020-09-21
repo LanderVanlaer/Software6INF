@@ -11,7 +11,7 @@ BorderPane {
 
 Label {
     -fx-text-fill: white;
-    -fx-background-color: rgba(0, 0, 127, 0.5);
+    -fx-background-color: rgb(0, 127, 13);
     -fx-background-radius: 10;
     -fx-font-size: 48;
     -fx-font-style: italic;
