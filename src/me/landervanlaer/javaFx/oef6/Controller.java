@@ -16,7 +16,7 @@ public class Controller {
 
     public void initialize() {
         timeline = new Timeline(new KeyFrame(Duration.seconds(1.0), this::puls));
-        timeline.setCycleCount(10);
+        timeline.setCycleCount(counter);
         label.setText(String.valueOf(counter));
     }
 
