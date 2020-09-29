@@ -17,8 +17,11 @@
             <TableColumn fx:id="puntenKolom" prefWidth="100.0" text="Gemiddelde"/>
         </columns>
     </TableView>
-    <TextField fx:id="vak" layoutX="289.0" layoutY="164.0" prefHeight="31.0" prefWidth="187.0" promptText="Vak"/>
-    <TextField fx:id="punten" layoutX="289.0" layoutY="219.0" prefHeight="31.0" prefWidth="187.0" promptText="Punten"/>
+    <TextField fx:id="vak" layoutX="289.0" layoutY="164.0" prefHeight="31.0" prefWidth="187.0" promptText="Vak"
+               onAction="#addVak"/>
+    <TextField fx:id="punten" layoutX="289.0" layoutY="219.0" prefHeight="31.0" prefWidth="187.0" promptText="Punten"
+               onAction="#addVak"/>
+
     <TextField fx:id="naam" layoutX="53.0" layoutY="44.0" prefHeight="31.0" prefWidth="187.0"
                promptText="Naam leerling" onAction="#changeLeerling"/>
 </AnchorPane>

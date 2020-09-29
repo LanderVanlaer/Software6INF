@@ -14,7 +14,7 @@ public class Leerling {
     public Leerling(String naam) throws IOException {
         this.naam = naam;
         this.bestand = new File("src/resources/puntenOef8/punten_" + this.getNaam() + ".txt");
-        getBestand().createNewFile()
+        getBestand().createNewFile();
     }
 
     public void initializePunten(TableView<Punten> table) throws FileNotFoundException {
@@ -38,10 +38,20 @@ public class Leerling {
         write();
     }
 
+    public void addVak(Punten punt) {
+        if(punt == null) return;
+        for(Punten p : list)
+            if(punt.getVak().toLowerCase().equals(p.getVak().toLowerCase())) {
+                p.setPunt(punt.getPunt());
+                return;
+            }
+        list.add(punt);
+    }
+
     public void write() {
         try {
             FileWriter writer = new FileWriter(this.getBestand(), false);
-            writer.append(this.getNaam() + "\n");
+            writer.append(this.getNaam()).append("\n");
             list.forEach(punten -> {
                 try {
                     writer.write(punten.getVak() + ": " + punten.getPunt() + "\n");
