@@ -6,6 +6,7 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
@@ -17,6 +18,10 @@ public class Controller {
     public Button stop;
     public Label counter;
     public Label win;
+    public TextField naam;
+    public TextField leeftijd;
+    public Label errorNaam;
+    public Label errorLeeftijd;
 
     protected Doos doos = new Doos(3);
     private Timeline timeline;
@@ -51,6 +56,7 @@ public class Controller {
             stop.setVisible(false);
             timeline.stop();
             counter.setVisible(false);
+            win.setText("U hebt gefaald!");
         }
         update();
     }
@@ -62,5 +68,25 @@ public class Controller {
         counter.setVisible(false);
 
         win.setText("Proficiat, u hebt 3 keer " + doos.getDobbelsteen(0).getBovenLiggendNummer() + " gegooid en u heeft nog " + count + " seconden over");
+    }
+
+    public void naamEnLeeftijdValideren(ActionEvent actionEvent) {
+        String naamString = naam.getText();
+        if(!naamString.substring(0, 1).equals(naamString.substring(0, 1).toUpperCase())) {
+            errorNaam.setText("Naam moet met hoofdletter beginnen");
+        }
+
+        errorLeeftijd.setText(null);
+        int leeftijdInt;
+        try {
+            leeftijdInt = Integer.parseInt(leeftijd.getText());
+        } catch(NumberFormatException ignored) {
+            errorLeeftijd.setText("Gelieve een nummer in te geven");
+            return;
+        }
+        if(leeftijdInt < 18) {
+            errorLeeftijd.setText("U bent te jong, 18+");
+        }
+
     }
 }
