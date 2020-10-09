@@ -72,11 +72,14 @@ public class Controller {
 
     public void naamEnLeeftijdValideren(ActionEvent actionEvent) {
         String naamString = naam.getText();
-        if(!naamString.substring(0, 1).equals(naamString.substring(0, 1).toUpperCase())) {
+        errorNaam.setText(null);
+        errorLeeftijd.setText(null);
+        if(naamString.isBlank()) {
+            errorNaam.setText("Gelieve een naam in te geven");
+        } else if(!naamString.substring(0, 1).equals(naamString.substring(0, 1).toUpperCase())) {
             errorNaam.setText("Naam moet met hoofdletter beginnen");
         }
 
-        errorLeeftijd.setText(null);
         int leeftijdInt;
         try {
             leeftijdInt = Integer.parseInt(leeftijd.getText());
