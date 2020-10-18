@@ -1,0 +1,18 @@
+* {
+    -fx-font-size: 15px;
+}
+
+GridPane {
+    -fx-alignment: center;
+    -fx-border-width: 0 0 0 1px;
+    -fx-border-style: solid;
+    -fx-border-color: black;
+}
+
+Label {
+    -fx-padding: 5px 5px 5px 5px;
+}
+
+GridPane Label.value {
+    -fx-alignment: center;
+}
