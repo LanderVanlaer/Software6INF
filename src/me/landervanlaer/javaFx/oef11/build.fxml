@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="597.0" prefWidth="400.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.landervanlaer.javaFx.oef11.Build">
 
@@ -109,4 +110,11 @@
         <Button fx:id="yahtzeeButton" text="✔" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
         <Button fx:id="chanceButton" text="✔" GridPane.columnIndex="2" GridPane.rowIndex="6"/>
     </GridPane>
+    <Button layoutX="302.0" layoutY="545.0" onAction="#nieuweDobbelstenen" text="gooi"/>
+    <Label fx:id="noPossibilities" alignment="CENTER" layoutX="93.0" layoutY="552.0" prefHeight="31.0" prefWidth="203.0"
+           text="Er zijn geen mogelijkheden" textAlignment="CENTER" textFill="RED" visible="false">
+        <font>
+            <Font size="4.0"/>
+        </font>
+    </Label>
 </AnchorPane>

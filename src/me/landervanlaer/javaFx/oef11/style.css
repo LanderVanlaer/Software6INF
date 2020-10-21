@@ -16,3 +16,12 @@ Label {
 GridPane Label.value {
     -fx-alignment: center;
 }
+
+GridPane Button {
+    -fx-background-color: none;
+}
+
+GridPane Button:hover {
+    -fx-background-color: #ababab;
+    -fx-background-radius: 10px;
+}
