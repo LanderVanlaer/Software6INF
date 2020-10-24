@@ -1,10 +1,15 @@
 package me.landervanlaer.javaFx.oef11;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Build {
 
@@ -45,12 +50,14 @@ public class Build {
             imageViewDobbelsteen5;
     public GridPane gridPaneTop;
     public TextField naam;
-    public Label noPossibilities;
+    public Label noPossibilities, nameError;
     private Doos doos;
 
     private YahtzeeOptie[] yahtzeeOpties;
 
     private TotalCounter[] totalCounters;
+
+    private boolean gameOver = false;
 
     private int count = 0;
 
@@ -96,8 +103,7 @@ public class Build {
     }
 
     public void nieuweDobbelstenen() {
-        if(++count > 3)
-            return;
+        if(isGameOver() || !doos.atLeastOneNonActive() || ++count > 3) return;
 
         noPossibilities.setVisible(false);
 
@@ -124,6 +130,55 @@ public class Build {
     public void volgendeRonde() {
         count = 0;
         for(TotalCounter c : totalCounters) c.update();
+        if(isGameOver()) {
+            gameOver();
+            return;
+        }
+        doos.volgendeRonde();
         nieuweDobbelstenen();
+    }
+
+    private boolean isGameOver() {
+        if(gameOver) return true;
+        for(YahtzeeOptie optie : yahtzeeOpties)
+            if(!optie.alreadyFilledIn()) return false;
+        return true;
+    }
+
+    private void gameOver() {
+        gameOver = true;
+        naam.setVisible(true);
+        naam.setOnAction(this::writeFileForPlayer);
+
+        for(YahtzeeOptie optie : yahtzeeOpties)
+            optie.checkIfPossible();
+    }
+
+    private void writeFileForPlayer(ActionEvent event) {
+        nameError.setVisible(false);
+        String naam = this.naam.getText().trim();
+        if(!isNamePossible(naam)) {
+            nameError.setVisible(true);
+            return;
+        }
+        try {
+            File file = new File("src/resources/yahtzee/punten_" + naam + ".txt");
+            FileWriter writer = new FileWriter(file, false);
+            writer
+                    .append(naam)
+                    .append("\n")
+                    .append(total.getText());
+            writer.close();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private boolean isNamePossible(String name) {
+        if(name.isBlank()) return false;
+        final char[] chars = name.toCharArray();
+        for(char c : chars)
+            if(!Character.isAlphabetic(c)) return false;
+        return true;
     }
 }

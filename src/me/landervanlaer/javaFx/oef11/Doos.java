@@ -138,4 +138,14 @@ public class Doos {
     public Dobbelsteen[] getDobbelstenen() {
         return this.dobbelstenen;
     }
+
+    public void volgendeRonde() {
+        for(Dobbelsteen d : getDobbelstenen()) d.volgendeRonde();
+    }
+
+    public boolean atLeastOneNonActive() {
+        for(Dobbelsteen d : getDobbelstenen())
+            if(!d.isActive()) return true;
+        return false;
+    }
 }

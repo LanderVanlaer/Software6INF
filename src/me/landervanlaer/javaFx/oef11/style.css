@@ -25,3 +25,12 @@ GridPane Button:hover {
     -fx-background-color: #ababab;
     -fx-background-radius: 10px;
 }
+
+ImageView.active {
+    -fx-opacity: .5;
+}
+
+Label.error {
+    -fx-font-size: 4;
+    -fx-text-fill: RED;
+}

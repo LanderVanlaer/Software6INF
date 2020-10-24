@@ -2,6 +2,7 @@ package me.landervanlaer.javaFx.oef11;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class Dobbelsteen {
     public static final int MAX = 6;
@@ -15,10 +16,16 @@ public class Dobbelsteen {
     };
     private final ImageView imageView;
     private int bovenLiggendNummer;
+    private boolean active = false;
 
     public Dobbelsteen(ImageView imageView) {
         this.bovenLiggendNummer = this.randomGetal();
         this.imageView = imageView;
+        this.imageView.setOnMouseClicked(this::clickActionHold);
+    }
+
+    private void clickActionHold(MouseEvent mouseEvent) {
+        toggleActive();
     }
 
     public Image getImage() {
@@ -31,7 +38,8 @@ public class Dobbelsteen {
     }
 
     public int gooi() {
-        this.setBovenLiggendNummer(this.randomGetal());
+        if(!isActive())
+            this.setBovenLiggendNummer(this.randomGetal());
         return this.getBovenLiggendNummer();
     }
 
@@ -50,5 +58,25 @@ public class Dobbelsteen {
 
     public void showOnScreen() {
         this.imageView.setImage(getImage());
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+        if(active)
+            imageView.getStyleClass().add("active");
+        else
+            imageView.getStyleClass().remove("active");
+    }
+
+    public void volgendeRonde() {
+        setActive(false);
+    }
+
+    public void toggleActive() {
+        setActive(!isActive());
     }
 }

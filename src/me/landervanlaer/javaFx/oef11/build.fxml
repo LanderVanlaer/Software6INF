@@ -3,14 +3,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="597.0" prefWidth="400.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.landervanlaer.javaFx.oef11.Build">
 
     <Label layoutX="27" layoutY="25" prefHeight="30.0" prefWidth="131.0" text="Total"/>
     <Label fx:id="total" layoutX="140" layoutY="25" prefHeight="30.0" prefWidth="131.0" styleClass="value"/>
 
-    <TextField fx:id="naam" layoutX="227.0" layoutY="25.0" prefHeight="25.0" prefWidth="159.0" promptText="Naam"/>
+    <TextField fx:id="naam" layoutX="227.0" layoutY="25.0" prefHeight="25.0" prefWidth="159.0" promptText="Naam"
+               visible="false"/>
+    <Label fx:id="nameError" alignment="TOP_RIGHT" layoutX="-4.0" layoutY="56.0" prefHeight="31.0" prefWidth="400.0"
+           styleClass="error" text="Een naam mag alleen alfabet karakters bevatten" textAlignment="CENTER"
+           visible="false"/>
 
     <ImageView fx:id="imageViewDobbelsteen1" fitHeight="75.0" fitWidth="75.0" layoutX="290.0" layoutY="80.0"/>
     <ImageView fx:id="imageViewDobbelsteen2" fitHeight="75.0" fitWidth="75.0" layoutX="290.0" layoutY="170.0"/>
@@ -112,9 +115,5 @@
     </GridPane>
     <Button layoutX="302.0" layoutY="545.0" onAction="#nieuweDobbelstenen" text="gooi"/>
     <Label fx:id="noPossibilities" alignment="CENTER" layoutX="93.0" layoutY="552.0" prefHeight="31.0" prefWidth="203.0"
-           text="Er zijn geen mogelijkheden" textAlignment="CENTER" textFill="RED" visible="false">
-        <font>
-            <Font size="4.0"/>
-        </font>
-    </Label>
+           styleClass="error" text="Er zijn geen mogelijkheden" textAlignment="CENTER" visible="false"/>
 </AnchorPane>
