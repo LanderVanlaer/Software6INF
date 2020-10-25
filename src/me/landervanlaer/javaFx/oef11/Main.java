@@ -12,6 +12,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("build.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.setTitle("oef 11");
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 }

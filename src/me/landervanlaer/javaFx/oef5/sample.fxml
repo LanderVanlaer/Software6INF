@@ -7,7 +7,7 @@
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane id="BorderPane" prefHeight="390.0" prefWidth="642.0" style="-fx-font-size: 15"
+<BorderPane id="BorderPane" prefHeight="390.0" prefWidth="642.0" style="-fxhr-font-size: 15"
             xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="me.landervanlaer.javaFx.oef5.Controller">
     <top>

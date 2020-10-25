@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-
-<AnchorPane prefHeight="516.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1"
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="597.0" prefWidth="400.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.landervanlaer.javaFx.oef11.Build">
-    <TextField fx:id="naam" layoutX="227.0" layoutY="31.0" prefHeight="25.0" prefWidth="159.0" promptText="Naam"/>
-    <GridPane layoutX="47.0" layoutY="117.0">
+
+    <Label layoutX="27" layoutY="25" prefHeight="30.0" prefWidth="131.0" text="Total"/>
+    <Label fx:id="total" layoutX="140" layoutY="25" prefHeight="30.0" prefWidth="131.0" styleClass="value"/>
+
+    <TextField fx:id="naam" layoutX="227.0" layoutY="25.0" prefHeight="25.0" prefWidth="159.0" promptText="Naam"
+               visible="false"/>
+    <Label fx:id="nameError" alignment="TOP_RIGHT" layoutX="-4.0" layoutY="56.0" prefHeight="31.0" prefWidth="400.0"
+           styleClass="error" text="Een naam mag alleen alfabet karakters bevatten" textAlignment="CENTER"
+           visible="false"/>
+
+    <ImageView fx:id="imageViewDobbelsteen1" fitHeight="75.0" fitWidth="75.0" layoutX="290.0" layoutY="80.0"/>
+    <ImageView fx:id="imageViewDobbelsteen2" fitHeight="75.0" fitWidth="75.0" layoutX="290.0" layoutY="170.0"/>
+    <ImageView fx:id="imageViewDobbelsteen3" fitHeight="75.0" fitWidth="75.0" layoutX="290.0" layoutY="260.0"/>
+    <ImageView fx:id="imageViewDobbelsteen4" fitHeight="75.0" fitWidth="75.0" layoutX="290.0" layoutY="350.0"/>
+    <ImageView fx:id="imageViewDobbelsteen5" fitHeight="75.0" fitWidth="75.0" layoutX="290.0" layoutY="440.0"/>
+
+
+    <GridPane fx:id="gridPaneTop" layoutX="27.0" layoutY="80.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0"/>
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
@@ -22,18 +35,85 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
         </rowConstraints>
-        <Label prefHeight="30.0" prefWidth="131.0" text="Aces"/>
-        <Label prefHeight="30.0" prefWidth="131.0" text="Twos" GridPane.rowIndex="1"/>
-        <Label prefHeight="30.0" prefWidth="131.0" text="Threes" GridPane.rowIndex="2"/>
-        <Label prefHeight="30.0" prefWidth="131.0" text="Fours" GridPane.rowIndex="3"/>
-        <Label prefHeight="30.0" prefWidth="131.0" text="Fives" GridPane.rowIndex="4"/>
-        <Label prefHeight="30.0" prefWidth="131.0" text="Sixes" GridPane.rowIndex="5"/>
-        <Label prefHeight="30.0" prefWidth="131.0" text="0" GridPane.columnIndex="1"/>
-        <Label prefHeight="30.0" prefWidth="131.0" text="0" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-        <Label prefHeight="30.0" prefWidth="131.0" text="0" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-        <Label prefHeight="30.0" prefWidth="131.0" text="0" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
-        <Label prefHeight="30.0" prefWidth="131.0" text="0" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-        <Label prefHeight="30.0" prefWidth="131.0" text="0" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+        <children>
+            <Label prefHeight="30.0" prefWidth="131.0" text="Aces"/>
+            <Label prefHeight="30.0" prefWidth="131.0" text="Twos" GridPane.rowIndex="1"/>
+            <Label prefHeight="30.0" prefWidth="131.0" text="Threes" GridPane.rowIndex="2"/>
+            <Label prefHeight="30.0" prefWidth="131.0" text="Fours" GridPane.rowIndex="3"/>
+            <Label prefHeight="30.0" prefWidth="131.0" text="Fives" GridPane.rowIndex="4"/>
+            <Label prefHeight="30.0" prefWidth="131.0" text="Sixes" GridPane.rowIndex="5"/>
+            <Label prefHeight="30.0" prefWidth="131.0" text="Total" GridPane.rowIndex="6"/>
+            <Label fx:id="scoreAces" prefHeight="30.0" prefWidth="131.0" styleClass="value" GridPane.columnIndex="1"/>
+            <Label fx:id="scoreTwos" prefHeight="30.0" prefWidth="131.0" styleClass="value" GridPane.columnIndex="1"
+                   GridPane.rowIndex="1"/>
+            <Label fx:id="scoreThrees" prefHeight="30.0" prefWidth="131.0" styleClass="value" GridPane.columnIndex="1"
+                   GridPane.rowIndex="2"/>
+            <Label fx:id="scoreFours" prefHeight="30.0" prefWidth="131.0" styleClass="value" GridPane.columnIndex="1"
+                   GridPane.rowIndex="3"/>
+            <Label fx:id="scoreFives" prefHeight="30.0" prefWidth="131.0" styleClass="value" GridPane.columnIndex="1"
+                   GridPane.rowIndex="4"/>
+            <Label fx:id="scoreSixes" prefHeight="30.0" prefWidth="131.0" styleClass="value" GridPane.columnIndex="1"
+                   GridPane.rowIndex="5"/>
+            <Label fx:id="scoreTotalTop" prefHeight="30.0" prefWidth="131.0" styleClass="value" GridPane.columnIndex="1"
+                   GridPane.rowIndex="6"/>
+            <Button fx:id="acesButton" text="✔" GridPane.columnIndex="2"/>
+            <Button fx:id="twosButton" text="✔" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+            <Button fx:id="threesButton" text="✔" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+            <Button fx:id="foursButton" text="✔" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+            <Button fx:id="fivesButton" text="✔" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+            <Button fx:id="sixesButton" text="✔" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+        </children>
     </GridPane>
+    <GridPane layoutX="27.0" layoutY="320.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        </rowConstraints>
+        <Label prefHeight="30.0" prefWidth="131.0" text="3 of a kind"/>
+        <Label prefHeight="30.0" prefWidth="131.0" text="4 of a kind" GridPane.rowIndex="1"/>
+        <Label prefHeight="30.0" prefWidth="131.0" text="Full house" GridPane.rowIndex="2"/>
+        <Label prefHeight="30.0" prefWidth="131.0" text="Sm. Straight" GridPane.rowIndex="3"/>
+        <Label prefHeight="30.0" prefWidth="131.0" text="Lg. Straigt" GridPane.rowIndex="4"/>
+        <Label prefHeight="30.0" prefWidth="131.0" text="Yahtzee" GridPane.rowIndex="5"/>
+        <Label prefHeight="30.0" prefWidth="131.0" text="Chance" GridPane.rowIndex="6"/>
+        <Label prefHeight="30.0" prefWidth="131.0" text="Total" GridPane.rowIndex="7"/>
+        <Label fx:id="kind3" prefHeight="30.0" prefWidth="131.0" styleClass="value" GridPane.columnIndex="1"/>
+        <Label fx:id="kind4" prefHeight="30.0" prefWidth="131.0" styleClass="value" GridPane.columnIndex="1"
+               GridPane.rowIndex="1"/>
+        <Label fx:id="fullHouse" prefHeight="30.0" prefWidth="131.0" styleClass="value" GridPane.columnIndex="1"
+               GridPane.rowIndex="2"/>
+        <Label fx:id="smallStraight" prefHeight="30.0" prefWidth="131.0" styleClass="value" GridPane.columnIndex="1"
+               GridPane.rowIndex="3"/>
+        <Label fx:id="largeStraight" prefHeight="30.0" prefWidth="131.0" styleClass="value" GridPane.columnIndex="1"
+               GridPane.rowIndex="4"/>
+        <Label fx:id="yahtzee" prefHeight="30.0" prefWidth="131.0" styleClass="value" GridPane.columnIndex="1"
+               GridPane.rowIndex="5"/>
+        <Label fx:id="chance" prefHeight="30.0" prefWidth="131.0" styleClass="value" GridPane.columnIndex="1"
+               GridPane.rowIndex="6"/>
+        <Label fx:id="scoreTotalBottom" prefHeight="30.0" prefWidth="131.0" styleClass="value" GridPane.columnIndex="1"
+               GridPane.rowIndex="7"/>
+        <Button fx:id="kind3Button" text="✔" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+        <Button fx:id="kind4Button" text="✔" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+        <Button fx:id="fullHouseButton" text="✔" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+        <Button fx:id="smallStraightButton" text="✔" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+        <Button fx:id="largeStraightButton" text="✔" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+        <Button fx:id="yahtzeeButton" text="✔" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+        <Button fx:id="chanceButton" text="✔" GridPane.columnIndex="2" GridPane.rowIndex="6"/>
+    </GridPane>
+    <Button layoutX="302.0" layoutY="545.0" onAction="#nieuweDobbelstenen" text="gooi"/>
+    <Label fx:id="noPossibilities" alignment="CENTER" layoutX="93.0" layoutY="552.0" prefHeight="31.0" prefWidth="203.0"
+           styleClass="error" text="Er zijn geen mogelijkheden" textAlignment="CENTER" visible="false"/>
 </AnchorPane>

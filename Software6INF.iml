@@ -8,6 +8,6 @@
     <orderEntry type="jdk" jdkName="14" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="javafx-sdk-15" level="application" />
-    <orderEntry type="library" name="Java-Small-Projects" level="project" />
+    <orderEntry type="module" module-name="Java-Small-Projects" />
   </component>
 </module>
