@@ -1,5 +1,6 @@
 package me.landervanlaer.javaFx.oef11;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -169,6 +170,7 @@ public class Build {
                     .append("\n")
                     .append(total.getText());
             writer.close();
+            Platform.exit();
         } catch(IOException e) {
             e.printStackTrace();
         }
